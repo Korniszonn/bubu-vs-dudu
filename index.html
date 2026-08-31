@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akta sprawy: Bubu vs Dudu ❤️</title>
+
+<style>
+
+/* =====================================================
+   PODSTAWOWE
+===================================================== */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#09090f;
+  color:#f8f7fb;
+  overflow-x:hidden;
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 22px;
+  position:relative;
+}
+
+.card{
+  max-width:900px;
+  width:100%;
+  text-align:center;
+}
+
+.locked{
+  display:none;
+}
+
+.badge{
+  display:inline-block;
+  border:1px solid #ffffff28;
+  background:#ffffff0d;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:13px;
+  letter-spacing:.08em;
+}
+
+h1{
+  font-size:clamp(42px,9vw,92px);
+  line-height:.95;
+  margin:22px 0;
+}
+
+h2{
+  font-size:clamp(30px,6vw,54px);
+  line-height:1.1;
+  margin:0 0 22px;
+}
+
+p{
+  font-size:clamp(17px,2.5vw,21px);
+  line-height:1.7;
+  color:#d9d6e3;
+}
+
+.accent{
+  color:#ff8fb1;
+}
+
+.small{
+  font-size:14px;
+  color:#aaa5b7;
+}
+
+
+/* =====================================================
+   PRZYCISKI
+===================================================== */
+
+button,
+.btn{
+  border:0;
+  border-radius:999px;
+  padding:14px 22px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  display:inline-block;
+  margin:8px;
+  transition:
+    .2s transform,
+    .2s opacity;
+}
+
+button:hover,
+.btn:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+
+.dark{
+  background:#15151f;
+  color:#fff;
+  border:1px solid #ffffff20;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #4b1e35 0,
+      #160f1b 38%,
+      #09090f 72%
+    );
+}
+
+.glow{
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  filter:blur(100px);
+  opacity:.28;
+  background:#ff5f98;
+  top:10%;
+  left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+
+
+/* =====================================================
+   REKONSTRUKCJA
+===================================================== */
+
+.reconstruction{
+  background:#0b0b12;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin:35px auto;
+  max-width:700px;
+  text-align:left;
+}
+
+.event{
+  padding:22px;
+  border-radius:22px;
+  background:#ffffff09;
+  border:1px solid #ffffff12;
+  transition:.25s;
+}
+
+.event:hover{
+  transform:translateY(-3px);
+  background:#ffffff0d;
+}
+
+.event strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:6px;
+}
+
+.event-text{
+  font-size:16px;
+  color:#d9d6e3;
+  line-height:1.55;
+}
+
+
+/* =====================================================
+   SNAPCHAT / INTERNET
+===================================================== */
+
+.app-comparison{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  max-width:650px;
+  margin:35px auto;
+}
+
+.app-card{
+  padding:22px;
+  border-radius:22px;
+  background:#ffffff08;
+  border:1px solid #ffffff12;
+}
+
+.app-icon{
+  font-size:38px;
+  margin-bottom:8px;
+}
+
+.app-card strong{
+  display:block;
+  font-size:19px;
+  margin-bottom:6px;
+}
+
+.app-card span{
+  color:#aaa5b7;
+  font-size:14px;
+}
+
+.dudu-reality{
+  max-width:650px;
+  margin:30px auto;
+  display:grid;
+  gap:12px;
+}
+
+.thought{
+  padding:18px 22px;
+  border-radius:20px;
+  background:#ffffff08;
+  border:1px solid #ffffff12;
+}
+
+.thought strong{
+  display:block;
+  margin-bottom:4px;
+}
+
+.reality{
+  padding:20px 22px;
+  border-radius:20px;
+  background:#ff5f9810;
+  border:1px solid #ff8fb125;
+}
+
+.reality strong{
+  color:#ff8fb1;
+}
+
+
+/* =====================================================
+   DOWODY
+===================================================== */
+
+.evidence{
+  background:
+    linear-gradient(
+      180deg,
+      #09090f,
+      #11101a
+    );
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(180px,1fr)
+    );
+  gap:14px;
+  margin-top:35px;
+}
+
+.gallery-item{
+  background:#ffffff07;
+  padding:10px;
+  border-radius:22px;
+  border:1px solid #ffffff12;
+  transition:.25s;
+}
+
+.gallery-item:hover{
+  transform:translateY(-4px);
+  background:#ffffff0b;
+}
+
+.gallery img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid #ffffff18;
+  background:#171722;
+  display:block;
+}
+
+.caption{
+  font-size:13px;
+  color:#aaa5b7;
+  margin-top:10px;
+  line-height:1.5;
+}
+
+
+/* =====================================================
+   PRZEPROSINY
+===================================================== */
+
+.apology{
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      #321b29,
+      #0c0b11 65%
+    );
+}
+
+.letter{
+  max-width:720px;
+  margin:30px auto;
+  text-align:left;
+  padding:30px;
+  border-radius:28px;
+  background:#ffffff08;
+  border:1px solid #ffffff14;
+  box-shadow:0 20px 80px #0005;
+}
+
+.letter p{
+  font-size:19px;
+}
+
+
+/* =====================================================
+   PRZEJŚCIE DO FINAŁU
+===================================================== */
+
+.transition-section{
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #241521,
+      #09090e 70%
+    );
+}
+
+.transition-heart{
+  font-size:80px;
+  animation:pulse 1.8s infinite;
+}
+
+
+/* =====================================================
+   FINAŁ
+===================================================== */
+
+.final{
+  min-height:100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      #321b29 0%,
+      #120d14 45%,
+      #07070a 100%
+    );
+
+  overflow:hidden;
+}
+
+.final-content{
+  max-width:750px;
+  margin:auto;
+}
+
+.final-line{
+  opacity:0;
+
+  transform:
+    translateY(25px);
+
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+
+  margin:30px 0;
+}
+
+.final-line.show{
+  opacity:1;
+  transform:none;
+}
+
+.final-small{
+  font-size:18px;
+  color:#aaa5b7;
+}
+
+.final-main{
+  font-size:
+    clamp(
+      25px,
+      5vw,
+      45px
+    );
+
+  line-height:1.35;
+  font-weight:600;
+}
+
+.final-big{
+  font-size:
+    clamp(
+      40px,
+      8vw,
+      75px
+    );
+
+  line-height:1.05;
+  font-weight:800;
+}
+
+.final-heart{
+  font-size:90px;
+
+  opacity:0;
+
+  transform:scale(.7);
+
+  transition:1.5s ease;
+
+  margin:25px 0;
+}
+
+.final-heart.show{
+  opacity:1;
+  transform:scale(1);
+}
+
+
+/* =====================================================
+   PRZYCISK MUZYKI
+===================================================== */
+
+.music-control{
+  position:fixed;
+
+  right:18px;
+  bottom:18px;
+
+  z-index:50;
+
+  width:48px;
+  height:48px;
+
+  border-radius:50%;
+
+  background:#17151d;
+  color:#fff;
+
+  border:1px solid #ffffff20;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:18px;
+
+  box-shadow:
+    0 10px 40px #0008;
+
+  opacity:0;
+  pointer-events:none;
+
+  transition:.5s;
+}
+
+.music-control.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+/* =====================================================
+   ANIMACJE
+===================================================== */
+
+.reveal{
+  opacity:0;
+
+  transform:
+    translateY(30px);
+
+  transition:.8s;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+@keyframes pulse{
+
+  50%{
+    transform:scale(1.12);
+  }
+
+}
+
+
+/* =====================================================
+   TELEFON
+===================================================== */
+
+@media(max-width:650px){
+
+  section{
+    padding:70px 17px;
+  }
+
+  .letter{
+    padding:22px;
+  }
+
+  .letter p{
+    font-size:17px;
+  }
+
+  .gallery img{
+    height:250px;
+  }
+
+  .app-comparison{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     EKRAN 1 — HERO
+================================================== -->
+
+<section
+id="hero"
+class="hero">
+
+<div class="glow"></div>
+
+<div class="card reveal">
+
+<span class="badge">
+🚨 SPRAWA NR 31/08/2026 🚨
+</span>
+
+<h1>
+
+AKTA SPRAWY
+
+<br>
+
+<span class="accent">
+BUBU VS DUDU
+</span>
+
+</h1>
+
+<p>
+
+<b>
+Dlaczego Dudu niesłusznie oskarżył Bubusia o ignorowanie go?
+</b>
+
+</p>
+
+<p class="small">
+
+Podejrzany: Duduś 🇵🇱
+
+<br>
+
+Poszkodowana: Bubuś 🇲🇨
+
+<br>
+
+Główny dowód: zasięg w Monako 📵
+
+<br><br>
+
+Poziom głupoty Dudu:
+
+<b class="accent">
+OGROMNY
+</b>
+
+</p>
+
+<button
+class="btn"
+onclick="openSection('rekonstrukcja')">
+
+OTWÓRZ AKTA ↓
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     EKRAN 2 — REKONSTRUKCJA
+================================================== -->
+
+<section
+id="rekonstrukcja"
+class="reconstruction locked">
+
+<div class="card reveal">
+
+<span class="badge">
+📂 REKONSTRUKCJA WYDARZEŃ
+</span>
+
+<h2>
+Co się właściwie stało? 📱
+</h2>
+
+
+<div class="timeline">
+
+
+<div class="event">
+
+<strong>
+🇵🇱 Dudu pisze
+</strong>
+
+<div class="event-text">
+
+Wiadomość wysłana z Polski.
+Wszystko wygląda normalnie.
+
+</div>
+
+</div>
+
+
+<div class="event">
+
+<strong>
+🇲🇨 Bubu jest w Monako
+</strong>
+
+<div class="event-text">
+
+Bubu jest w Monako i próbuje
+normalnie korzystać z internetu.
+
+</div>
+
+</div>
+
+
+<div class="event">
+
+<strong>
+📡 zaczyna się problem...
+</strong>
+
+<div class="event-text">
+
+Zasięg postanawia zrobić sobie wakacje.
+Wiadomości zaczynają nie przychodzić.
+
+</div>
+
+</div>
+
+
+<div class="event">
+
+<strong>
+❌ Dudu nie dostaje wiadomości
+</strong>
+
+<div class="event-text">
+
+Dudu widzi, że nie ma odpowiedzi.
+
+I zamiast pomyśleć:
+
+„pewnie coś z internetem”... to mu odwala
+
+</div>
+
+</div>
+
+
+<div class="event">
+
+<strong>
+👻 Snapchat: działa
+</strong>
+
+<div class="event-text">
+
+Dudu dostaje Snapa.
+
+I wtedy jego mózg wykonuje
+najbardziej logiczne rozumowanie w historii:
+
+"AHA IGNORUJE MNIE.”
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="app-comparison">
+
+
+<div class="app-card">
+
+<div class="app-icon">
+👻
+</div>
+
+<strong>
+Snapchat
+</strong>
+
+<span>
+"spokojnie, ja działam 😎”
+</span>
+
+</div>
+
+
+<div class="app-card">
+
+<div class="app-icon">
+🗨️
+</div>
+
+<strong>
+Messenger
+</strong>
+
+<span>
+"spierdalaj 😎”
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="dudu-reality">
+
+
+<div class="thought">
+
+<strong>
+🧠 Dudu:
+</strong>
+
+"Ona mnie ignoruje.”
+
+</div>
+
+
+<div class="reality">
+
+<strong>
+📡 Rzeczywistość:
+</strong>
+
+<br>
+
+„Pojebało cię xdd”
+
+</div>
+
+
+</div>
+
+
+<button
+class="btn dark"
+onclick="openSection('dowody')">
+
+PRZEJDŹ DO DOWODÓW →
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     EKRAN 3 — DOWODY
+================================================== -->
+
+<section
+id="dowody"
+class="evidence locked">
+
+<div class="card reveal">
+
+<span class="badge">
+🔎 MATERIAŁ DOWODOWY
+</span>
+
+<h2>
+
+DOWODY, ŻE DUDU I BUBU
+
+<span class="accent">
+JEDNAK SIĘ LUBIĄ
+</span>
+
+❤️
+
+</h2>
+
+<p class="small">
+
+Przeanalizowano dostępny materiał dowodowy.
+
+<br>
+
+Wyniki są jednoznaczne.
+
+</p>
+
+
+<div class="gallery">
+
+
+<div class="gallery-item">
+
+<img
+src="zdjecia/01.jpg"
+alt="Bubu i Dudu 1">
+
+<div class="caption">
+
+<b>Dowód #01</b>
+
+<br>
+
+Bubu i Dudu przed kolejną
+kłótnią o absolutnie nic.
+
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="zdjecia/02.jpg"
+alt="Bubu i Dudu 2">
+
+<div class="caption">
+
+<b>Dowód #02</b>
+
+<br>
+
+Dwoje różnych ludzi.
+Jeden bardzo szczęśliwy związek.
+
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="zdjecia/03.jpg"
+alt="Bubu i Dudu 3">
+
+<div class="caption">
+
+<b>Dowód #03</b>
+
+<br>
+
+Podejrzanie szczęśliwi.
+
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="zdjecia/04.jpg"
+alt="Bubu i Dudu 4">
+
+<div class="caption">
+
+<b>Dowód #04</b>
+
+<br>
+
+Dwoje ludzi, którzy najwyraźniej
+bardzo się lubią, mimo że czasami
+Dudu nie ma mózgu.
+
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="zdjecia/05.jpg"
+alt="Bubu i Dudu 5">
+
+<div class="caption">
+
+<b>Dowód #05</b>
+
+<br>
+
+Dudu nadal ma szczęście.
+Bubu nadal go toleruje.
+
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="zdjecia/06.jpg"
+alt="Bubu i Dudu 6">
+
+<div class="caption">
+
+<b>Dowód #06</b>
+
+<br>
+
+Nie znaleziono żadnych dowodów
+na to, że Bubu nie lubi Dudu.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+class="btn"
+onclick="openSection('przeprosiny')">
+
+DOBRZE. TERAZ JUŻ SERIO →
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     EKRAN 4 — PRAWDZIWE PRZEPROSINY
+================================================== -->
+
+<section
+id="przeprosiny"
+class="apology locked">
+
+<div class="card reveal">
+
+<span class="badge">
+❤️ OŚWIADCZENIE DUDUSIA
+</span>
+
+<h2>
+Dobra. Teraz już bez żartów.
+</h2>
+
+
+<div class="letter">
+
+
+<p>
+<b>
+Olenka, Bubuś, Myszko ❤️
+</b>
+</p>
+
+
+<p>
+Przepraszam.
+</p>
+
+
+<p>
+
+Wiem, że zachowałem się wobec Ciebie niesprawiedliwie.
+Zobaczyłem, że moje wiadomości dochodzą,
+a Twoich nie widzę, a potem jeszcze dostałem od Ciebie Snapa.
+Uznałem więc, że mnie ignorujesz.
+
+</p>
+
+
+<p>
+
+Zamiast pomyśleć, że coś może być nie tak z zasięgiem,
+od razu założyłem najgorsze i napisałem Ci rzeczy,
+których nie powinienem był pisać.
+
+</p>
+
+
+<p>
+
+Nie chcę się tym usprawiedliwiać.
+Chcę po prostu powiedzieć, że naprawdę żałuję,
+że Cię tym zraniłem i że byłaś przez to na mnie zła.
+
+</p>
+
+
+<p>
+
+Nie chcę, żeby jedna głupia sytuacja
+popsuła nam humor i nasz czas razem. ❤️
+
+</p>
+
+
+<p>
+
+<b>
+Twój Duduś
+</b>
+
+</p>
+
+
+</div>
+
+<button
+class="btn"
+onclick="openSection('piosenka')">
+
+MAM COŚ JESZCZE DO POWIEDZENIA →
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     EKRAN 5 — PRZEJŚCIE
+================================================== -->
+
+<section
+id="piosenka"
+class="transition-section locked">
+
+<div class="card reveal">
+
+<div class="transition-heart">
+❤️
+</div>
+
+<h2>
+I mam jeszcze jedną rzecz...
+</h2>
+
+<p class="small">
+
+Zostań tutaj chwilę.
+
+<br>
+
+Chcę Ci coś powiedzieć.
+
+</p>
+
+
+<button
+class="btn"
+onclick="startFinal()">
+
+❤️ MAM COŚ JESZCZE DO POWIEDZENIA →
+
+</button>
+
+
+<audio
+id="audio"
+src="muzyka/heaven.mp3"
+preload="auto">
+</audio>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     EKRAN 6 — FINAŁ
+================================================== -->
+
+<section
+id="final"
+class="final locked">
+
+<div class="card final-content">
+
+
+<div
+id="line1"
+class="final-line final-small">
+
+Nie wiem dokładnie,
+kiedy się zobaczymy...
+
+</div>
+
+
+<div
+id="line2"
+class="final-line final-main">
+
+Ale wiem jedno.
+
+</div>
+
+
+<div
+id="line3"
+class="final-line final-main">
+
+Jak już Cię zobaczę...
+
+</div>
+
+
+<div
+id="line4"
+class="final-line final-big accent">
+
+pierwsze co zrobię,
+
+<br>
+
+to Cię mocno przytulę. ❤️
+
+</div>
+
+
+<div
+id="line5"
+class="final-line final-small">
+
+Bo nawet jeśli czasami się pokłócimy,
+
+<br>
+
+to nadal jesteś dla mnie
+najważniejsza.
+
+</div>
+
+
+<div
+id="line6"
+class="final-line final-main">
+
+Bubuś...
+
+</div>
+
+
+<div
+id="line7"
+class="final-line final-big">
+
+przepraszam ❤️
+
+</div>
+
+
+<div
+id="heart"
+class="final-heart">
+
+❤️
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     MUZYKA
+================================================== -->
+
+<button
+id="musicControl"
+class="music-control"
+onclick="toggleMusic()">
+
+⏸️
+
+</button>
+
+
+
+<script>
+
+/* =====================================================
+   ZMIENNE
+===================================================== */
+
+const audio =
+document.getElementById('audio');
+
+const musicControl =
+document.getElementById('musicControl');
+
+let finalStarted=false;
+
+
+/* =====================================================
+   ODKRYWANIE KOLEJNEJ SEKCJI
+===================================================== */
+
+function openSection(id){
+
+  const section =
+    document.getElementById(id);
+
+  if(!section){
+    return;
+  }
+
+
+  /*
+     Odkrywamy sekcję.
+  */
+
+  section.classList.remove('locked');
+
+  section.style.display='flex';
+
+
+  /*
+     Przewijamy do niej.
+  */
+
+  setTimeout(()=>{
+
+    section.scrollIntoView({
+      behavior:'smooth'
+    });
+
+  },50);
+
+
+  /*
+     Włączamy animację zawartości.
+  */
+
+  setTimeout(()=>{
+
+    section
+      .querySelectorAll('.reveal')
+      .forEach(element=>{
+
+        element.classList.add(
+          'visible'
+        );
+
+      });
+
+  },250);
+
+}
+
+
+/* =====================================================
+   START FINAŁU
+===================================================== */
+
+function startFinal(){
+
+  if(finalStarted){
+    return;
+  }
+
+  finalStarted=true;
+
+
+  const final =
+    document.getElementById('final');
+
+
+  /*
+     Odkrywamy finał.
+  */
+
+  final.classList.remove('locked');
+
+  final.style.display='flex';
+
+
+  /*
+     Przewijamy do finału.
+  */
+
+  setTimeout(()=>{
+
+    final.scrollIntoView({
+      behavior:'smooth'
+    });
+
+  },50);
+
+
+  /*
+     MUZYKA
+     
+     Plik musi znajdować się tutaj:
+
+     muzyka/heaven.mp3
+  */
+
+  audio.play()
+    .then(()=>{
+
+      musicControl.classList.add('show');
+
+    })
+    .catch(()=>{
+
+      /*
+         Jeśli przeglądarka zablokuje
+         automatyczne odtworzenie,
+         przycisk nadal się pokaże.
+      */
+
+      musicControl.classList.add('show');
+
+    });
+
+
+  /*
+     TEKST POJAWIA SIĘ STOPNIOWO
+  */
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('line1')
+      .classList.add('show');
+
+  },1200);
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('line2')
+      .classList.add('show');
+
+  },3500);
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('line3')
+      .classList.add('show');
+
+  },5800);
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('line4')
+      .classList.add('show');
+
+  },8200);
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('line5')
+      .classList.add('show');
+
+  },11200);
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('line6')
+      .classList.add('show');
+
+  },14500);
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('line7')
+      .classList.add('show');
+
+  },17000);
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById('heart')
+      .classList.add('show');
+
+  },19500);
+
+}
+
+
+/* =====================================================
+   PLAY / PAUSE MUZYKI
+===================================================== */
+
+function toggleMusic(){
+
+  if(audio.paused){
+
+    audio.play()
+      .then(()=>{
+
+        musicControl.textContent='⏸️';
+
+      })
+      .catch(()=>{});
+
+  }else{
+
+    audio.pause();
+
+    musicControl.textContent='▶️';
+
+  }
+
+}
+
+
+audio.addEventListener(
+  'play',
+  ()=>{
+
+    musicControl.textContent='⏸️';
+
+  }
+);
+
+
+audio.addEventListener(
+  'pause',
+  ()=>{
+
+    musicControl.textContent='▶️';
+
+  }
+);
+
+
+audio.addEventListener(
+  'ended',
+  ()=>{
+
+    musicControl.textContent='▶️';
+
+  }
+);
+
+
+/* =====================================================
+   ANIMACJE ELEMENTÓW
+===================================================== */
+
+const obs =
+new IntersectionObserver(
+
+(entries)=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add(
+        'visible'
+      );
+
+    }
+
+  });
+
+},
+
+{
+  threshold:.12
+}
+
+);
+
+
+document
+  .querySelectorAll('.reveal')
+  .forEach(element=>{
+
+    obs.observe(element);
+
+  });
+
+
+/* =====================================================
+   PIERWSZY EKRAN
+===================================================== */
+
+document
+  .querySelector('#hero .reveal')
+  .classList.add('visible');
+
+</script>
+
+</body>
+</html>
